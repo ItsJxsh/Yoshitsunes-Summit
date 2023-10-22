@@ -4,42 +4,31 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-
-    private GameObject KnifeHitbox = default;
-
-    public bool attacking = false;
-    private float timeToAttack = 0.25f;
-    private float timer = 0f;
-
+    private PolygonCollider2D hitbox;
 
 
     void start()
     {
-        KnifeHitbox = transform.GetChild(0).gameObject;
+        hitbox = transform.Find("KnifeHitbox").GetComponent<PolygonCollider2D>();
     }
 
     void update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E));
         {
-            attack();
-        }
-        if(attacking)
-        {
-            timer += Time.deltaTime;
-
-            if(timer >= timeToAttack)
-            {
-                timer = 0;
-                attacking = false;
-                KnifeHitbox.SetActive(attacking);
-            }
+            Invoke("ActivateHitbox", 0.2f); // Activate hitbox after 0.2 seconds.
+            Invoke("DeactivateHitbox", 0.4f); // Deactivate hitbox after 0.4 seconds.
         }
     }
-    private void attack()
+
+    void ActivateHitbox()
     {
-        attacking = true;
-        KnifeHitbox.SetActive(attacking);
+        hitbox.gameObject.SetActive(true);
+    }
+
+    void DeactivateHitbox()
+    {
+       hitbox.gameObject.SetActive(false);
     }
 }
 
