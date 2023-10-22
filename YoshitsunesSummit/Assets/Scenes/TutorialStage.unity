@@ -2682,6 +2682,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8fca1381fb5808147b4f802e2c9298bd, type: 3}
   - {fileID: 21300000, guid: 0f9ee848a161d3249a80145d32d7d449, type: 3}
   - {fileID: 21300000, guid: 4a8a730eac31a8842b3da13080627e81, type: 3}
+  - {fileID: 21300000, guid: 965d92e77ca44214ebb02bdeacf12631, type: 3}
   animationTime: 3
   loop: 1
   idle: 0
