@@ -7,8 +7,8 @@ public class PlayerAttack : MonoBehaviour
 
     private GameObject KnifeHitbox = default;
 
-    private bool attacking = false;
-    private float timeToAttack = 0.2f;
+    public bool attacking = false;
+    private float timeToAttack = 0.25f;
     private float timer = 0f;
 
 
@@ -20,13 +20,13 @@ public class PlayerAttack : MonoBehaviour
 
     void update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             attack();
         }
         if(attacking)
         {
-            timer = Time.deltaTime;
+            timer += Time.deltaTime;
 
             if(timer >= timeToAttack)
             {
@@ -36,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
-    void attack()
+    private void attack()
     {
         attacking = true;
         KnifeHitbox.SetActive(attacking);

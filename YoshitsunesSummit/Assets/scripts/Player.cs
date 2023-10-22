@@ -5,50 +5,53 @@ using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
-    public int health = 3;
-    public int score = 0;
-    public float speed = 10.0f;
-    Rigidbody2D rb; 
-    public float jumpForce = 15;
-    float velocity;
+    private float speed = 8f;
 
+    private Rigidbody2D body;
+    private Vector2 axisMovement;
+
+    int jumpForce = 20;
+
+    // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody2D>();
     }
 
-
+    // Update is called once per frame
     void Update()
     {
-        float dt = Time.deltaTime;
-        float horizontal = Input.GetAxisRaw("Horizontal");
-
-
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
-
+        axisMovement.x = Input.GetAxisRaw("Horizontal");
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            
+            body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-
     }
 
-    public void Damage(int amount)
+    private void FixedUpdate()
     {
-        this.health -= amount;
-        if (health <= 0)
+        Move();
+    }
+
+    private void Move()
+    {
+        body.velocity = new Vector2(axisMovement.x * speed, body.velocity.y);
+        CheckForFlipping();
+    }
+
+    private void CheckForFlipping()
+    {
+        bool movingLeft = axisMovement.x < 0;
+        bool movingRight = axisMovement.x > 0;
+
+        if (movingLeft)
         {
-            Die();
+            transform.localScale = new Vector3(-1f, transform.localScale.y);
+        }
+
+        if (movingRight)
+        {
+            transform.localScale = new Vector3(1f, transform.localScale.y);
         }
     }
-
-    private void Die()
-    {
-        Debug.Log("I am Dead!");
-        Destroy(gameObject);
-    }
-
-
 }
