@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private float speed = 8f;
+    public bool isGrounded;
+    public bool isJumping;
+    private bool facingRight = true;
+    private Vector3 facingLeft;
+
 
     private Rigidbody2D body;
     private Vector2 axisMovement;
@@ -17,6 +22,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        facingLeft = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
     // Update is called once per frame
@@ -41,7 +47,7 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        body.velocity = new Vector2(axisMovement.x * speed, body.velocity.y);
+        body.velocity = new Vector3(axisMovement.x * speed, body.velocity.y, transform.localScale.z);
         CheckForFlipping();
     }
 
@@ -50,14 +56,16 @@ public class Player : MonoBehaviour
         bool movingLeft = axisMovement.x < 0;
         bool movingRight = axisMovement.x > 0;
 
-        if (movingLeft)
+        if (movingLeft && facingRight == true)
         {
-            transform.localScale = new Vector3(-1f, transform.localScale.y);
+            transform.localScale = facingLeft;
+            facingRight = false;
         }
 
-        if (movingRight)
+        if (movingRight && facingRight == false)
         {
-            transform.localScale = new Vector3(1f, transform.localScale.y);
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            facingRight = true;
         }
     }
 }
