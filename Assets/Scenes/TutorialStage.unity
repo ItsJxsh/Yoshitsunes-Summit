@@ -2671,7 +2671,6 @@ GameObject:
   - component: {fileID: 1468323390}
   - component: {fileID: 1468323389}
   - component: {fileID: 1468323395}
-  - component: {fileID: 1468323394}
   - component: {fileID: 1468323392}
   - component: {fileID: 1468323393}
   m_Layer: 0
@@ -2791,6 +2790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrounded: 0
   isJumping: 0
+  health: 3
 --- !u!114 &1468323393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2803,19 +2803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4ba0d66c893904ba9658f77f8092bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1468323394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1468323387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a857b62d4b68d34ba70bf2113321c89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
 --- !u!70 &1468323395
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

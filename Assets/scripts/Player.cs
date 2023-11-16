@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     public bool isGrounded;
     public bool isJumping;
     private bool facingRight = true;
-    private Vector3 facingLeft;
+    private Vector3 facingLeft; 
+    public int health = 3;
 
 
     private Rigidbody2D body;
@@ -37,6 +38,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SceneManager.LoadScene("Game Over");
+        }
+        if (health <= 0)
+        {
+            ChangeToNextScene();
         }
     }
 
@@ -68,4 +73,18 @@ public class Player : MonoBehaviour
             facingRight = true;
         }
     }
+
+    public void ChangeScene(string scenename)
+    {
+        SceneManager.LoadScene(scenename);
+        
+    }
+    public void ChangeToNextScene()
+    {
+        string nextSceneName = "Game Over";
+        ChangeScene(nextSceneName);
+
+    }
 }
+
+    
