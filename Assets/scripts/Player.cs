@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
         axisMovement.x = Input.GetAxisRaw("Horizontal");
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            body.velocity = new Vector3(body.velocity.x, 0, transform.localScale.z);
             body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
