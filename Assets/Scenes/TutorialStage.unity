@@ -2673,6 +2673,7 @@ GameObject:
   - component: {fileID: 1468323395}
   - component: {fileID: 1468323392}
   - component: {fileID: 1468323393}
+  - component: {fileID: 1468323396}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2788,7 +2789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48f8d055b898e14387f78bd8e9ac3c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGrounded: 0
   isJumping: 0
   health: 3
 --- !u!114 &1468323393
@@ -2838,6 +2838,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.025270373, y: -0.0884465}
   m_Size: {x: 0.70927495, y: 1.2568009}
   m_Direction: 0
+--- !u!114 &1468323396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468323387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4164494b1bdd377428e1454976b4cf1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knife: {fileID: 762278098668256749, guid: e2890b32c23117b45a3da461b05f9149, type: 3}
 --- !u!1 &1650216623
 GameObject:
   m_ObjectHideFlags: 0
