@@ -99,7 +99,14 @@ public class Player : MonoBehaviour
 
     }
 
-
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            ChangeToNextScene();
+        }
+    }
 
 }
 
