@@ -13,6 +13,12 @@ public class KnifeCollision : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (collision.tag == "enemy")
+        {
+            collision.GetComponent<Health>().Damage(1);
+            Destroy(gameObject);
+        }
+
 
     }
 }

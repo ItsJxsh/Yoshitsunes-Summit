@@ -11,13 +11,14 @@ public class Health : MonoBehaviour
         this.health -= amount;
         if (health <= 0)
         {
-            Die();
+            Debug.Log("I am Dead!");
+        Destroy(gameObject);
         }
     }
 
     private void Die()
     {
         Debug.Log("I am Dead!");
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 }
