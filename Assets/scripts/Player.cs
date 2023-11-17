@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private float speed = 8f;
-    public bool isGrounded;
     public bool isJumping;
+    private int jumpsremaining = 2;
     private bool facingRight = true;
     private Vector3 facingLeft; 
     public int health = 3;
@@ -30,10 +30,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         axisMovement.x = Input.GetAxisRaw("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && jumpsremaining > 0)
         {
             body.velocity = new Vector3(body.velocity.x, 0, transform.localScale.z);
             body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            jumpsremaining--;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -44,6 +45,17 @@ public class Player : MonoBehaviour
         {
             ChangeToNextScene();
         }
+
+        bool IsGrounded()
+        {
+            return GetComponent<Rigidbody2D>().velocity.y == 0;
+        }
+
+        if (IsGrounded())
+        {
+            jumpsremaining = 2;
+        }
+
     }
 
     private void FixedUpdate()
@@ -86,6 +98,9 @@ public class Player : MonoBehaviour
         ChangeScene(nextSceneName);
 
     }
+
+
+
 }
 
     
