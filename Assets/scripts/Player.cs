@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private bool facingRight = true;
     private Vector3 facingLeft; 
     public int health = 3;
+    public GameObject background;
 
 
     private Rigidbody2D body;
@@ -76,6 +77,7 @@ public class Player : MonoBehaviour
 
         if (movingLeft && facingRight == true)
         {
+            background.transform.localScale = new Vector3(-background.transform.localScale.x, background.transform.localScale.y, background.transform.localScale.z); ;
             transform.localScale = facingLeft;
             facingRight = false;
         }
@@ -83,6 +85,7 @@ public class Player : MonoBehaviour
         if (movingRight && facingRight == false)
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            background.transform.localScale = new Vector3(-background.transform.localScale.x, background.transform.localScale.y, background.transform.localScale.z); ;
             facingRight = true;
         }
     }
