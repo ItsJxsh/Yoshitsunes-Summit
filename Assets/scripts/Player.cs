@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    private float speed = 8f;
+    private float speed = 0.0f;
+    private float minSpeed = 3.0f;
+    private float maxSpeed = 8.0f;
+    private float acceleration = 2.0f;
     public bool isJumping;
     private int jumpsremaining = 2;
     private bool facingRight = true;
@@ -23,8 +26,10 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = minSpeed;
         body = GetComponent<Rigidbody2D>();
         facingLeft = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+    
     }
 
     // Update is called once per frame
@@ -66,7 +71,18 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
+        if (axisMovement.x !=0)
+        {
+            speed = Mathf.Min(speed + acceleration * Time.deltaTime, maxSpeed);
+        }
+
+        else
+        {
+            speed = Mathf.Max(speed - acceleration * Time.deltaTime, minSpeed);
+        }
+
         body.velocity = new Vector3(axisMovement.x * speed, body.velocity.y, transform.localScale.z);
+
         CheckForFlipping();
     }
 
