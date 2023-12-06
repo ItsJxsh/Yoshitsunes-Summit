@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private float speed = 0.0f;
-    private float minSpeed = 3.0f;
+    private float minSpeed = 6.0f;
     private float maxSpeed = 8.0f;
     private float acceleration = 2.0f;
     public bool isJumping;
@@ -43,10 +43,6 @@ public class Player : MonoBehaviour
             jumpsremaining--;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SceneManager.LoadScene("Game Over");
-        }
         if (health <= 0)
         {
             ChangeToNextScene();
