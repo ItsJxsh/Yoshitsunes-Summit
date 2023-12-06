@@ -11,7 +11,7 @@ public class EnemyCollision : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Player player = collision.GetComponent<Player>();
-            if (player != null && Mathf.Abs(player.transform.position.x - transform.position.x) <= 2)
+            if (player != null && Mathf.Abs(player.transform.position.x - transform.position.x) <= 2 && Mathf.Abs(player.transform.position.y - transform.position.y) <= 2)
             {
                 player.TakeDamage(damageAmount);
             }
