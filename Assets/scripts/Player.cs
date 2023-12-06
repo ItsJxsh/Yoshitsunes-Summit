@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private Vector3 facingLeft; 
     public int health = 3;
     public GameObject background;
-
+    public int coinCounter;
 
     private Rigidbody2D body;
     private Vector2 axisMovement;
