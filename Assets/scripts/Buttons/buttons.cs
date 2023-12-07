@@ -9,4 +9,9 @@ public class button_control : MonoBehaviour
     {
         SceneManager.LoadScene("TutorialStage");
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
