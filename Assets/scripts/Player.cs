@@ -48,15 +48,6 @@ public class Player : MonoBehaviour
             ChangeToNextScene();
         }
 
-        bool IsGrounded()
-        {
-            return GetComponent<Rigidbody2D>().velocity.y == 0;
-        }
-
-        if (IsGrounded())
-        {
-            jumpsremaining = 2;
-        }
 
     }
 
