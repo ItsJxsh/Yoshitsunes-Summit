@@ -8,11 +8,13 @@ public class Health : MonoBehaviour
 
     public void Damage(int amount)
     {
+        this.GetComponent<Renderer>().material.color = new Color(255, 0, 0);
         this.health -= amount;
+        StartCoroutine(waiter());
         if (health <= 0)
         {
             Debug.Log("I am Dead!");
-        Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -20,5 +22,12 @@ public class Health : MonoBehaviour
     {
         Debug.Log("I am Dead!");
         Destroy(this.gameObject);
+    }
+
+    IEnumerator waiter()
+    {
+
+        yield return new WaitForSeconds(0.05f);
+        this.GetComponent<Renderer>().material.color = Color.white;
     }
 }
