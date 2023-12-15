@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private float maxSpeed = 8.0f;
     private float acceleration = 2.0f;
     public bool isJumping;
-    private int jumpsremaining = 2;
+    public int jumpsremaining = 2;
     private bool facingRight = true;
     private Vector3 facingLeft; 
     public int health = 3;
@@ -116,13 +116,21 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        this.GetComponent<Renderer>().material.color = new Color(255, 0, 0);
         health -= amount;
+        StartCoroutine(waiter());
         if (health <= 0)
         {
             ChangeToNextScene();
         }
     }
 
+    IEnumerator waiter()
+    {
+
+        yield return new WaitForSeconds(0.05f);
+        this.GetComponent<Renderer>().material.color = Color.white;
+    }
 }
 
     
