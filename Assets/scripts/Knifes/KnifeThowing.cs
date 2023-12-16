@@ -20,7 +20,7 @@ public class KnifeThowing : MonoBehaviour
             GameObject knifeClone = GameObject.Instantiate(knife, transform.position + knifeDirection / 2, Quaternion.identity);
             knifeClone.GetComponent<Rigidbody2D>().velocity = knifeDirection * 18.0f;
             myFx.PlayOneShot(KnifeThrow);
-            Destroy(knifeClone, 1.5f);
+            Destroy(knifeClone, 1f);
         }
 
     }

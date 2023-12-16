@@ -134,4 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myFx: {fileID: 0}
-  CoinSound: {fileID: 8300000, guid: 14db4b919345055429872d2bc5ebbdd9, type: 3}
+  CoinSound: {fileID: 8300000, guid: 0c9c28f3142ca2641bcc85c627968b3e, type: 3}
