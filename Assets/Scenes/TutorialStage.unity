@@ -327,7 +327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.02, y: -0.29}
+  m_AnchoredPosition: {x: 5.01, y: 4.01}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70481523
@@ -343,8 +343,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1468323391}
-  offset: {x: 0, y: 0, z: 0}
   smoothSpeed: 3.5
+  horizontalOffset: 0.75
+  verticalOffset: 2
+  minBoundary: {x: 5, y: 4}
+  maxBoundary: {x: 130, y: 26}
 --- !u!1001 &74742007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10304,18 +10307,6 @@ Transform:
   - {fileID: 2112746160}
   - {fileID: 348581030}
   - {fileID: 1851627886}
-  - {fileID: 936519297}
-  - {fileID: 1755450471}
-  - {fileID: 1883387152}
-  - {fileID: 889793596}
-  - {fileID: 1030510715}
-  - {fileID: 889569199}
-  - {fileID: 1417818501}
-  - {fileID: 2082381411}
-  - {fileID: 501391477}
-  - {fileID: 1693491929}
-  - {fileID: 341286002}
-  - {fileID: 773447835}
   - {fileID: 215672817}
   - {fileID: 1889107201}
   - {fileID: 279792027}
@@ -10326,6 +10317,18 @@ Transform:
   - {fileID: 1048583502}
   - {fileID: 787755815}
   - {fileID: 837364021}
+  - {fileID: 936519297}
+  - {fileID: 341286002}
+  - {fileID: 773447835}
+  - {fileID: 1755450471}
+  - {fileID: 1883387152}
+  - {fileID: 889793596}
+  - {fileID: 1030510715}
+  - {fileID: 889569199}
+  - {fileID: 1417818501}
+  - {fileID: 2082381411}
+  - {fileID: 501391477}
+  - {fileID: 1693491929}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1413130852 stripped
