@@ -51,6 +51,29 @@ public class Player : MonoBehaviour
         {
             ChangeToNextScene();
         }
+
+        if (OnWall && axisMovement.x != 0)
+        {
+            body.velocity = new Vector3(body.velocity.x, -1, transform.localScale.z);
+            jumpsremaining = 1;
+            sliding = true;
+        }
+        else
+        {
+            sliding = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && sliding && facingRight)
+        {
+            body.velocity = new Vector2(-10, 3);
+            Debug.Log("wall jump left");
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && sliding && !facingRight)
+        {
+            body.velocity = new Vector2(10, 3);
+            Debug.Log("wall jump right");
+        }
+
     }
 
     private void FixedUpdate()
