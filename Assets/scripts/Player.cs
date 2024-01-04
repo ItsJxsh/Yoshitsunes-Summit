@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private float acceleration = 2.0f;
     public bool isJumping;
     public int jumpsremaining = 2;
+    public bool OnWall = false;
     private bool facingRight = true;
     private Vector3 facingLeft; 
     public int health = 3;
@@ -48,6 +49,11 @@ public class Player : MonoBehaviour
             ChangeToNextScene();
         }
 
+        if (OnWall && axisMovement.x != 0)
+        {
+            body.velocity = new Vector3(body.velocity.x, -1, transform.localScale.z);
+            jumpsremaining = 1;
+        }
 
     }
 
