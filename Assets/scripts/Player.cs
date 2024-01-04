@@ -36,7 +36,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         axisMovement.x = Input.GetAxisRaw("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space) && jumpsremaining > 0)
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space)) // Controls set for dropping down platform level.
+        {
+            return; 
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && jumpsremaining > 0)
         {
             body.velocity = new Vector3(body.velocity.x, 0, transform.localScale.z);
             body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -47,8 +51,6 @@ public class Player : MonoBehaviour
         {
             ChangeToNextScene();
         }
-
-
     }
 
     private void FixedUpdate()
@@ -98,13 +100,11 @@ public class Player : MonoBehaviour
     public void ChangeScene(string scenename)
     {
         SceneManager.LoadScene(scenename);
-        
     }
     public void ChangeToNextScene()
     {
         string nextSceneName = "Game Over";
         ChangeScene(nextSceneName);
-
     }
 
     public void TakeDamage(int amount)
@@ -117,13 +117,10 @@ public class Player : MonoBehaviour
             ChangeToNextScene();
         }
     }
-
     IEnumerator waiter()
     {
-
         yield return new WaitForSeconds(0.05f);
         this.GetComponent<Renderer>().material.color = Color.white;
     }
 }
 
-    
