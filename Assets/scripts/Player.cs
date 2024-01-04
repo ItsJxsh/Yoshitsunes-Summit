@@ -12,12 +12,14 @@ public class Player : MonoBehaviour
     private float acceleration = 2.0f;
     public bool isJumping;
     public int jumpsremaining = 2;
+    public bool OnWall = false;
     private bool facingRight = true;
     private Vector3 facingLeft; 
     public int health = 3;
     // public GameObject background;    // Seperating the camera and player removed the need for background flipping; Comes with other issues though, will try to adress them. -Matt 
     public int coinCounter;
 
+    public bool sliding = false;
     private Rigidbody2D body;
     private Vector2 axisMovement;
 
