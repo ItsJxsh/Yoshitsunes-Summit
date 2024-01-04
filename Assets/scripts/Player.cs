@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public GameObject background;
     public int coinCounter;
 
+    public bool sliding = false;
     private Rigidbody2D body;
     private Vector2 axisMovement;
 
@@ -53,6 +54,22 @@ public class Player : MonoBehaviour
         {
             body.velocity = new Vector3(body.velocity.x, -1, transform.localScale.z);
             jumpsremaining = 1;
+            sliding = true;
+        }
+        else
+        {
+            sliding = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && sliding && facingRight)
+        {
+            body.velocity = new Vector2( -10, 3);
+            Debug.Log("wall jump left");
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && sliding && !facingRight)
+        {
+            body.velocity = new Vector2( 10, 3);
+            Debug.Log("wall jump right");
         }
 
     }
