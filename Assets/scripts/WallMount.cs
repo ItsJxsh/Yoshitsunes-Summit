@@ -8,7 +8,7 @@ public class WallMount : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name == ("Permanent Tiles"))
+        if (col.name == ("Permanent Tiles") && player.GetComponent<Rigidbody2D>().velocity.y < 0)
             player.GetComponent<Player>().OnWall = true;
     }
 
