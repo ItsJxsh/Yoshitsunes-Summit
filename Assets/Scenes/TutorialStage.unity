@@ -1935,7 +1935,7 @@ Transform:
   m_GameObject: {fileID: 470212416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.14, z: 0.34}
+  m_LocalPosition: {x: 0.04, y: -0.1, z: 0.34}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -10737,6 +10737,7 @@ MonoBehaviour:
   OnWall: 0
   health: 3
   coinCounter: 0
+  sliding: 0
 --- !u!114 &1468323393
 MonoBehaviour:
   m_ObjectHideFlags: 0
