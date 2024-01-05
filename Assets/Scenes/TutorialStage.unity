@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 70481522}
   - component: {fileID: 70481521}
   - component: {fileID: 70481520}
+  - component: {fileID: 70481523}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -292,8 +293,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 61.7
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 6.7192583
   m_Depth: -5
   m_CullingMask:
     serializedVersion: 2
@@ -309,22 +310,44 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &70481522
-Transform:
+--- !u!224 &70481522
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70481519}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 6.07, y: 6.07, z: 6.07}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 470212417}
-  m_Father: {fileID: 1468323391}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 5.01, y: 4.01}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &70481523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70481519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165d713da4dc8ad4b899c6ecfdfc0740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1468323391}
+  smoothSpeed: 3.5
+  horizontalOffset: 0.75
+  verticalOffset: 2
+  minBoundary: {x: 5, y: 4}
+  maxBoundary: {x: 130, y: 26}
 --- !u!1001 &74742007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1912,8 +1935,8 @@ Transform:
   m_GameObject: {fileID: 470212416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.34}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: -0.5, y: 0.14, z: 0.34}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 70481522}
@@ -10375,18 +10398,6 @@ Transform:
   - {fileID: 2112746160}
   - {fileID: 348581030}
   - {fileID: 1851627886}
-  - {fileID: 936519297}
-  - {fileID: 1755450471}
-  - {fileID: 1883387152}
-  - {fileID: 889793596}
-  - {fileID: 1030510715}
-  - {fileID: 889569199}
-  - {fileID: 1417818501}
-  - {fileID: 2082381411}
-  - {fileID: 501391477}
-  - {fileID: 1693491929}
-  - {fileID: 341286002}
-  - {fileID: 773447835}
   - {fileID: 215672817}
   - {fileID: 1889107201}
   - {fileID: 279792027}
@@ -10397,6 +10408,18 @@ Transform:
   - {fileID: 1048583502}
   - {fileID: 787755815}
   - {fileID: 837364021}
+  - {fileID: 936519297}
+  - {fileID: 341286002}
+  - {fileID: 773447835}
+  - {fileID: 1755450471}
+  - {fileID: 1883387152}
+  - {fileID: 889793596}
+  - {fileID: 1030510715}
+  - {fileID: 889569199}
+  - {fileID: 1417818501}
+  - {fileID: 2082381411}
+  - {fileID: 501391477}
+  - {fileID: 1693491929}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1413130852 stripped
@@ -10693,7 +10716,6 @@ Transform:
   m_Children:
   - {fileID: 559130638}
   - {fileID: 231126180}
-  - {fileID: 70481522}
   - {fileID: 806718873}
   - {fileID: 599562920}
   m_Father: {fileID: 0}
@@ -10714,7 +10736,6 @@ MonoBehaviour:
   jumpsremaining: 2
   OnWall: 0
   health: 3
-  background: {fileID: 470212416}
   coinCounter: 0
 --- !u!114 &1468323393
 MonoBehaviour:
@@ -13865,11 +13886,12 @@ SceneRoots:
   - {fileID: 1933954300}
   - {fileID: 762567246}
   - {fileID: 1041814570}
-  - {fileID: 1468323391}
   - {fileID: 561404650}
   - {fileID: 474453892}
+  - {fileID: 1468323391}
   - {fileID: 1795450780}
   - {fileID: 1199084122}
   - {fileID: 1964148309}
   - {fileID: 1338103162}
   - {fileID: 322917750}
+  - {fileID: 70481522}

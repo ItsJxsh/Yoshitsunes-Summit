@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour
 
     void update()
     {
-        if (Input.GetKeyDown(KeyCode.E));
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Invoke("ActivateHitbox", 0.2f); // Activate hitbox after 0.2 seconds.
             Invoke("DeactivateHitbox", 0.4f); // Deactivate hitbox after 0.4 seconds.

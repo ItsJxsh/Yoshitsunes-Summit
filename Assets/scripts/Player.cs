@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private bool facingRight = true;
     private Vector3 facingLeft; 
     public int health = 3;
-    public GameObject background;
+    // public GameObject background;    // Seperating the camera and player removed the need for background flipping; Comes with other issues though, will try to adress them. -Matt 
     public int coinCounter;
 
     public bool sliding = false;
@@ -38,7 +38,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         axisMovement.x = Input.GetAxisRaw("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space) && jumpsremaining > 0)
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Space)) // Controls set for dropping down platform level.
+        {
+            return; 
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && jumpsremaining > 0)
         {
             body.velocity = new Vector3(body.velocity.x, 0, transform.localScale.z);
             body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -63,12 +67,12 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && sliding && facingRight)
         {
-            body.velocity = new Vector2( -10, 3);
+            body.velocity = new Vector2(-10, 3);
             Debug.Log("wall jump left");
         }
         if (Input.GetKeyDown(KeyCode.Space) && sliding && !facingRight)
         {
-            body.velocity = new Vector2( 10, 3);
+            body.velocity = new Vector2(10, 3);
             Debug.Log("wall jump right");
         }
 
@@ -103,29 +107,29 @@ public class Player : MonoBehaviour
 
         if (movingLeft && facingRight == true)
         {
-            background.transform.localScale = new Vector3(-background.transform.localScale.x, background.transform.localScale.y, background.transform.localScale.z); ;
             transform.localScale = facingLeft;
             facingRight = false;
+
+            //background.transform.localScale = new Vector3(-background.transform.localScale.x, background.transform.localScale.y, background.transform.localScale.z); ;
         }
 
         if (movingRight && facingRight == false)
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            background.transform.localScale = new Vector3(-background.transform.localScale.x, background.transform.localScale.y, background.transform.localScale.z); ;
             facingRight = true;
+
+            //background.transform.localScale = new Vector3(-background.transform.localScale.x, background.transform.localScale.y, background.transform.localScale.z); ;
         }
     }
 
     public void ChangeScene(string scenename)
     {
         SceneManager.LoadScene(scenename);
-        
     }
     public void ChangeToNextScene()
     {
         string nextSceneName = "Game Over";
         ChangeScene(nextSceneName);
-
     }
 
     public void TakeDamage(int amount)
@@ -138,13 +142,10 @@ public class Player : MonoBehaviour
             ChangeToNextScene();
         }
     }
-
     IEnumerator waiter()
     {
-
         yield return new WaitForSeconds(0.05f);
         this.GetComponent<Renderer>().material.color = Color.white;
     }
 }
 
-    
