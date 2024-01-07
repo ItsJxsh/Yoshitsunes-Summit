@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class button_control : MonoBehaviour
+public class buttons : MonoBehaviour
 {
     public Slider soundSlider;
     public GameObject audioManager; 

@@ -3206,7 +3206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 953832470}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: button_control, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
