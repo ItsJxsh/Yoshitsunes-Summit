@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     private bool facingRight = true;
     private Vector3 facingLeft; 
     public int health = 3;
-    // public GameObject background;    // Seperating the camera and player removed the need for background flipping; Comes with other issues though, will try to adress them. -Matt 
     public int coinCounter;
 
     public bool sliding = false;
@@ -109,16 +108,12 @@ public class Player : MonoBehaviour
         {
             transform.localScale = facingLeft;
             facingRight = false;
-
-            //background.transform.localScale = new Vector3(-background.transform.localScale.x, background.transform.localScale.y, background.transform.localScale.z); ;
         }
 
         if (movingRight && facingRight == false)
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             facingRight = true;
-
-            //background.transform.localScale = new Vector3(-background.transform.localScale.x, background.transform.localScale.y, background.transform.localScale.z); ;
         }
     }
 

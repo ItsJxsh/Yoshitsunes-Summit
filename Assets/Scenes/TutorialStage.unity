@@ -347,7 +347,7 @@ MonoBehaviour:
   horizontalOffset: 0.75
   verticalOffset: 2
   minBoundary: {x: 5, y: 4}
-  maxBoundary: {x: 130, y: 26}
+  maxBoundary: {x: 103, y: 26}
 --- !u!1001 &74742007
 PrefabInstance:
   m_ObjectHideFlags: 0

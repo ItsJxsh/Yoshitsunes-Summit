@@ -62,7 +62,7 @@ public class CameraFollowing : MonoBehaviour
             transform.position = smoothedPosition;      // Smoothly moves the camera towards the desired position.
             transform.position = new Vector3(transform.position.x, transform.position.y, -10f);     // To freeze Z axis cam movement, needs better fix.
             transform.position = new Vector3(Mathf.Clamp(smoothedPosition.x, minBoundary.x, maxBoundary.x),
-                Mathf.Clamp(smoothedPosition.y, minBoundary.y, maxBoundary.y), transform.position.z);    // Keeps Camera within boundary points.
+                                             Mathf.Clamp(smoothedPosition.y, minBoundary.y, maxBoundary.y), transform.position.z);    // Keeps Camera within boundary points.
         }
     }
 }
