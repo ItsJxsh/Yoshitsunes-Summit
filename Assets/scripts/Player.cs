@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private bool facingRight = true;
     private Vector3 facingLeft; 
     public int health = 3;
+    public int stamina = 2;
     public int coinCounter;
 
     public bool sliding = false;
